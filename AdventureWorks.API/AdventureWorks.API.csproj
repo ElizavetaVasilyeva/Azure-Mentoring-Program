@@ -135,6 +135,7 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,7 +147,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\AdventureWorksAPI20200326050929 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\hr-console-vasilyeva-API - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\LVAdventureWorksAPI - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,6 +162,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.Infrastructure\AdventureWorks.Infrastructure.csproj">
+      <Project>{021670ba-8620-4e5a-93f0-b5c5bd66025a}</Project>
+      <Name>AdventureWorks.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Services\AdventureWorks.Services.csproj">
       <Project>{9ce302a2-d18a-4530-880b-195487d9918b}</Project>
       <Name>AdventureWorks.Services</Name>

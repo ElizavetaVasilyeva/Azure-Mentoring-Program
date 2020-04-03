@@ -224,6 +224,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Connected Services\Application Insights\ConnectedService.json" />
+    <None Include="Properties\PublishProfiles\AdventureWorksWeb20200326045145 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\hr-console-vasilyeva - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\hr-console-vasilyeva - Web Deploy1.pubxml" />
@@ -295,6 +296,10 @@
     <ProjectReference Include="..\AdventureWorks.DbModel\AdventureWorks.DbModel.csproj">
       <Project>{81e96cda-f8b3-4b85-a60d-4a3fe5b1c7b2}</Project>
       <Name>AdventureWorks.DbModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdventureWorks.Infrastructure\AdventureWorks.Infrastructure.csproj">
+      <Project>{021670ba-8620-4e5a-93f0-b5c5bd66025a}</Project>
+      <Name>AdventureWorks.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Services\AdventureWorks.Services.csproj">
       <Project>{9ce302a2-d18a-4530-880b-195487d9918b}</Project>

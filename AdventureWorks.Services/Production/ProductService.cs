@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AdventureWorks.Services.Configuration;
 using Serilog;
 
 namespace AdventureWorks.Services.Production
@@ -8,7 +9,13 @@ namespace AdventureWorks.Services.Production
     public class ProductService : IProductService
     {
         private readonly DbModel.Entities _entities = new DbModel.Entities();
-        private readonly ILogger _log = new LoggerConfiguration().CreateLogger();
+        private readonly ILogger _log;
+
+        public ProductService()
+        {
+            _log = AzureStorageConfigurator.GetLogger();
+        }
+
         public IEnumerable<Product> GetProducts()
         {
             try

@@ -7,13 +7,20 @@ namespace AdventureWorks.Web.Controllers
 {
     public class DepartmentsController : Controller
     {
+
+        private readonly IDepartmentService _departmentService;
+
+        public DepartmentsController(IDepartmentService departmentService)
+        {
+            _departmentService = departmentService;
+        }
+
         // GET: Departments
         public ActionResult Index()
         {
             TelemetryClient telemetry = new TelemetryClient();
             telemetry.TrackPageView("Loading Departments page");
-            DepartmentService departmentService = new DepartmentService();
-            var departmentGroups = departmentService.GetDepartments();
+            var departmentGroups = _departmentService.GetDepartments();
 
             return View(departmentGroups);
         }
@@ -26,9 +33,8 @@ namespace AdventureWorks.Web.Controllers
                     {{"employeeId", id.ToString()}};
 
             telemetry.TrackEvent("Loading employee page", properties);
-            DepartmentService departmentService = new DepartmentService();
-            var departmentEmployees = departmentService.GetDepartmentEmployees(id);
-            var departmentInfo = departmentService.GetDepartmentInfo(id);
+            var departmentEmployees = _departmentService.GetDepartmentEmployees(id);
+            var departmentInfo = _departmentService.GetDepartmentInfo(id);
 
             ViewBag.Title = "Employees in " + departmentInfo.Name + " Department";
 
