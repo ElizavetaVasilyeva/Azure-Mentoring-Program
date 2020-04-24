@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -29,8 +30,9 @@ namespace AdventureWorks.API.Controllers
 
             var provider = await Request.Content.ReadAsMultipartAsync();
             var bytes = await provider.Contents.First().ReadAsByteArrayAsync();
+            var fileName = Path.GetFileName(provider.Contents.First().Headers.ContentDisposition.FileName.Replace("\"", string.Empty));
 
-            await _fileUploader.UploadFile(bytes);
+            await _fileUploader.UploadFile(fileName, bytes);
 
             return Ok();
         }

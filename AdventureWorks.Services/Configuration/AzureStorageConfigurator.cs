@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure;
+﻿using System.Configuration;
+using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Serilog;
 
@@ -23,6 +24,11 @@ namespace AdventureWorks.Services.Configuration
         public static CloudStorageAccount GetAccount()
         {
             var connection = CloudConfigurationManager.GetSetting("AccountConnectionString");
+            if (connection == null)
+            {
+                connection = ConfigurationManager.AppSettings["AccountConnectionString"];
+            }
+
             return CloudStorageAccount.Parse(connection);
         }
     }

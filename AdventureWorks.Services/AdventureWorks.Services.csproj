@@ -90,9 +90,13 @@
     <Compile Include="HumanResources\IDepartmentService.cs" />
     <Compile Include="Interfaces\IFileUploader.cs" />
     <Compile Include="Configuration\AzureStorageConfigurator.cs" />
+    <Compile Include="Models\QueueItem.cs" />
+    <Compile Include="Production\IProductDocumentService.cs" />
     <Compile Include="Production\IProductService.cs" />
     <Compile Include="Production\Product.cs" />
     <Compile Include="Production\ProductCategory.cs" />
+    <Compile Include="Production\ProductDocument.cs" />
+    <Compile Include="Production\ProductDocumentService.cs" />
     <Compile Include="Production\ProductModel.cs" />
     <Compile Include="Production\ProductService.cs" />
     <Compile Include="Production\ProductSubcategory.cs" />
@@ -106,7 +110,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

@@ -2,8 +2,11 @@
 using System.Threading.Tasks;
 using AdventureWorks.Services.Configuration;
 using AdventureWorks.Services.Interfaces;
+using AdventureWorks.Services.Models;
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Queue;
+using Newtonsoft.Json;
 
 namespace AdventureWorks.Services.Documents
 {
@@ -18,15 +21,21 @@ namespace AdventureWorks.Services.Documents
             _queueClient = AzureStorageConfigurator.GetAccount().CreateCloudQueueClient();
         }
 
-        public async Task UploadFile(byte[] bytes)
+        public async Task UploadFile(string fileName, byte[] bytes)
         {
             var container = _blobClient.GetContainerReference("documents");
-            var filename = $"{DateTime.Now:s}_{Guid.NewGuid()}.docx";
-            var blob = container.GetBlockBlobReference(filename);
+            var blobName = fileName + Guid.NewGuid();
+            var blob = container.GetBlockBlobReference(blobName);
             blob.UploadFromByteArray(bytes, 0, bytes.Length);
 
+            var message = new QueueItem
+            {
+                FileName = fileName,
+                BlobName = blobName
+            };
+            var json = JsonConvert.SerializeObject(message, Formatting.Indented);
             await _queueClient.GetQueueReference("notifications")
-                .AddMessageAsync(new CloudQueueMessage($"File {filename} was uploaded"));
+                .AddMessageAsync(new CloudQueueMessage(json));
         }
     }
 }

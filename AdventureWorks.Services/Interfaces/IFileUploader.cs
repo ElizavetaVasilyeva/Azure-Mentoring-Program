@@ -4,6 +4,6 @@ namespace AdventureWorks.Services.Interfaces
 {
     public interface IFileUploader
     {
-        Task UploadFile(byte[] bytes);
+        Task UploadFile(string fileName, byte[] bytes);
     }
 }

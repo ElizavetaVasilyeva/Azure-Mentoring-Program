@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Tests", "Adv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Infrastructure", "AdventureWorks.Infrastructure\AdventureWorks.Infrastructure.csproj", "{021670BA-8620-4E5A-93F0-B5C5BD66025A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventureWorks.AzureFunctions", "AdventureWorks.AzureFunctions\AdventureWorks.AzureFunctions.csproj", "{E715A611-EFF1-4D19-B0E8-0E9EAB4B23CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{021670BA-8620-4E5A-93F0-B5C5BD66025A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{021670BA-8620-4E5A-93F0-B5C5BD66025A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{021670BA-8620-4E5A-93F0-B5C5BD66025A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E715A611-EFF1-4D19-B0E8-0E9EAB4B23CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E715A611-EFF1-4D19-B0E8-0E9EAB4B23CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E715A611-EFF1-4D19-B0E8-0E9EAB4B23CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E715A611-EFF1-4D19-B0E8-0E9EAB4B23CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

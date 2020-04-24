@@ -6,8 +6,10 @@ using Autofac.Integration.WebApi;
 using System;
 using System.Web.Mvc;
 using System.Web.Http;
+using AdventureWorks.Services.Configuration;
 using AdventureWorks.Services.Documents;
 using AdventureWorks.Services.Interfaces;
+using Serilog;
 
 namespace AdventureWorks.Infrastructure
 {
@@ -39,7 +41,9 @@ namespace AdventureWorks.Infrastructure
         {
             builder.RegisterType<DepartmentService>().As<IDepartmentService>().InstancePerRequest();
             builder.RegisterType<ProductService>().As<IProductService>().InstancePerRequest();
+            builder.RegisterType<ProductDocumentService>().As<IProductDocumentService>().InstancePerRequest();
             builder.RegisterType<AzureFileUploader>().As<IFileUploader>().InstancePerRequest();
+            builder.Register(c => AzureStorageConfigurator.GetLogger()).As<ILogger>().SingleInstance();
         }
     }
 }
