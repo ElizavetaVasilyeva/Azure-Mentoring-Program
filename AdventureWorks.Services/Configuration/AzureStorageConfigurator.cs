@@ -17,13 +17,13 @@ namespace AdventureWorks.Services.Configuration
 
         public static CloudStorageAccount GetStorage()
         {
-            var connection = CloudConfigurationManager.GetSetting("StorageConnectionString");
+            var connection = KeyVaultService.StorageConnectionString;
             return CloudStorageAccount.Parse(connection);
         }
 
         public static CloudStorageAccount GetAccount()
         {
-            var connection = CloudConfigurationManager.GetSetting("AccountConnectionString");
+            var connection = KeyVaultService.AccountConnectionString;
             if (connection == null)
             {
                 connection = ConfigurationManager.AppSettings["AccountConnectionString"];
