@@ -1,0 +1,20 @@
+﻿@using Microsoft.Azure.Search.Models;
+@model DocumentSearchResult<AdventureWorks.Services.Production.Product>
+@if (Model != null)
+{
+    <div style="float:left; width: 100%;">
+        <span style="font-weight: bold;">Found Products:</span>
+        <br />
+        @foreach (var result in Model.Results)
+        {
+        <div class="item">
+            <p>Name: @result.Document.Name</p>
+            <p>Product number: @result.Document.ProductNumber</p>
+            <p>List price: @result.Document.ListPrice</p>
+            <p>Product line: @result.Document.ProductLine</p>
+            <p>Sell start date: @result.Document.SellStartDate</p>
+            <p>Sell end date: @result.Document.SellEndDate</p>
+        </div>
+        }
+    </div>
+}

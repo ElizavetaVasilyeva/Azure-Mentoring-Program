@@ -9,6 +9,8 @@ namespace AdventureWorks.Services
     {
         public static string AccountConnectionString { get; set; }
         public static string StorageConnectionString { get; set; }
+        public static string ServiceSearchClientKey { get; set; }
+        public static string ServiceSearchClientName { get; set; }
 
         public static async Task<string> GetToken(string authority, string resource, string scope)
         {

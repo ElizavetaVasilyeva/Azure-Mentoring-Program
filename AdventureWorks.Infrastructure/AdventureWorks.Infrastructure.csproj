@@ -108,6 +108,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.AzureSearch\AdventureWorks.AzureSearch.csproj">
+      <Project>{be43b0d5-3507-4aee-a1d9-4e017c4e75de}</Project>
+      <Name>AdventureWorks.AzureSearch</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdventureWorks.Services\AdventureWorks.Services.csproj">
       <Project>{9ce302a2-d18a-4530-880b-195487d9918b}</Project>
       <Name>AdventureWorks.Services</Name>

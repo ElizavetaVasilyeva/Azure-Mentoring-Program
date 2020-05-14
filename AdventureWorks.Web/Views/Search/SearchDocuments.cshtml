@@ -1,0 +1,25 @@
+﻿@using System.Text
+@using Microsoft.AspNetCore.WebUtilities
+@using Microsoft.Azure.Search.Models;
+
+@model DocumentSearchResult<AdventureWorks.AzureSearch.Models.Document>
+@if (Model != null)
+{
+    <div style="float:left; width: 100%;">
+        <span style="font-weight: bold;">Found Documents:</span>
+        <br/>
+        @foreach (var result in Model.Results)
+        {
+            var encodedStringWithoutTrailingCharacter = result.Document.StoragePath.Substring(0, result.Document.StoragePath.Length - 1);
+            var path = HttpUtility.UrlDecode(WebEncoders.Base64UrlDecode(encodedStringWithoutTrailingCharacter), Encoding.UTF8);
+            <div class="item">
+                <p>Name: @result.Document.StorageName</p>
+                <p>Path: <a href="@path">@path</a></p>
+                <p>Modified: @result.Document.LastModified</p>
+                <p>Storage content type: @result.Document.StorageContentType</p>
+                <p>Size:  @result.Document.Size</p>
+                <p>Extension:  @result.Document.Extension</p>
+            </div>
+        }
+    </div>
+}

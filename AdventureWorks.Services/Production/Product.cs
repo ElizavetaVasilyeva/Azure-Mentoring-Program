@@ -16,18 +16,14 @@ namespace AdventureWorks.Services.Production
         public decimal ListPrice { get; set; }
         public string Size { get; set; }
         public string SizeUnitMeasureCode { get; set; }
-        //public UnitMeasure SizeUnitMeasure { get; set; }
         public string WeightUnitMeasureCode { get; set; }
-        //public UnitMeasure WeightUnitMeasure { get; set; }
         public decimal? Weight { get; set; }
         public int DaysToManufacture { get; set; }
         public string ProductLine { get; set; }
         public string Class { get; set; }
         public string Style { get; set; }
         public int? ProductSubcategoryId { get; set; }
-        //public ProductSubcategory ProductSubcategory { get; set; }
         public int? ProductModelId { get; set; }
-        //public ProductModel ProductModel { get; set; }
         public DateTime SellStartDate { get; set; }
         public DateTime? SellEndDate { get; set; }
         public DateTime? DiscontinuedDate { get; set; }

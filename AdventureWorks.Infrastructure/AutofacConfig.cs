@@ -6,6 +6,7 @@ using Autofac.Integration.WebApi;
 using System;
 using System.Web.Mvc;
 using System.Web.Http;
+using AdventureWorks.AzureSearch;
 using AdventureWorks.Services.Configuration;
 using AdventureWorks.Services.Documents;
 using AdventureWorks.Services.Interfaces;
@@ -44,6 +45,7 @@ namespace AdventureWorks.Infrastructure
             builder.RegisterType<ProductDocumentService>().As<IProductDocumentService>().InstancePerRequest();
             builder.RegisterType<AzureFileUploader>().As<IFileUploader>().InstancePerRequest();
             builder.Register(c => AzureStorageConfigurator.GetLogger()).As<ILogger>().SingleInstance();
+            builder.RegisterType<AzureSearchService>().As<IAzureSearchService>().InstancePerRequest();
         }
     }
 }

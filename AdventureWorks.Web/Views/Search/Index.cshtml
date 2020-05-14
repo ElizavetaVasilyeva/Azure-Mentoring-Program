@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Search</h2>
+<div class="row search-section">
+    <div class="col-md-12">
+        Search for: @Html.TextBox("searchTerm", null, new { @class = "search-textbox" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-default" id="searchProducts">Search products</a>
+        <div class="search-results" id="productsResults">
+            No products to display
+        </div>
+    </div>
+    <div class="col-md-6">
+        <a class="btn btn-default" id="searchDocuments">Search documents</a>
+        <div class="search-results" id="documentsResults">
+            No documents to display
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            $("#searchProducts").on("click", function (event) {
+                event.preventDefault;
+                searchProducts();
+                return false;
+            });
+        });
+
+        $(function () {
+            $("#searchDocuments").on("click", function (event) {
+                event.preventDefault;
+                searchDocuments();
+                return false;
+            });
+        });
+
+        function searchDocuments() {
+            var data = { searchTerm: $("#searchTerm").val() };
+
+            $.ajax({
+                url: "@Url.Action("SearchDocuments")",
+                data: data,
+                success: (function (data) {
+                    $("#documentsResults").html(data);
+                })
+            });
+        }
+
+        function searchProducts() {
+            var data = { searchTerm: $("#searchTerm").val() };
+
+            $.ajax({
+                url: "@Url.Action("SearchProducts")",
+                data: data,
+                success: (function (data) {
+                    $("#productsResults").html(data);
+                })
+            });
+        }
+
+    </script>
+}
